@@ -1,6 +1,4 @@
-/**
- * Created by wuduogen838 on 17/5/16.
- */
+package main;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
@@ -10,7 +8,6 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +31,7 @@ public class CodeWriter {
     public String write(AnActionEvent event, List<List<String>> list, String type, boolean isSerializable) {
         this.type = type;
         this.attributeList = list;
+        //获取当前编辑的文件
         PsiFile psiFile = event.getData(LangDataKeys.PSI_FILE);
         if (psiFile == null) {
             return "PsiFile can not be null";
@@ -50,7 +48,7 @@ public class CodeWriter {
                 errorMessage[0] = "Project can not be null!";
                 return;
             }
-
+            //获取当前编辑的class对象
             PsiElement element = psiFile.findElementAt(editor.getCaretModel().getOffset());
             PsiClass psiClass = PsiTreeUtil.getParentOfType(element, PsiClass.class);
             if (psiClass == null) {

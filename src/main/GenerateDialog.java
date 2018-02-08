@@ -1,3 +1,5 @@
+package main;
+
 import javax.swing.*;
 
 public class GenerateDialog extends JDialog {

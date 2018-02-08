@@ -30,7 +30,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="GenerateModelFromStringByGk" class="MainAction" text="GenerateModelFromString"
+    <action id="GenerateModelFromStringByGk" class="main.MainAction" text="GenerateModelFromString"
             description="Auto generate model from string">
       <add-to-group group-id="GenerateGroup" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt S"/>
