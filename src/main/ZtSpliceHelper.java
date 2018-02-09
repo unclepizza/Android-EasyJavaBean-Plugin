@@ -5,6 +5,7 @@ import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElementFactory;
 import com.intellij.psi.PsiField;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,14 +77,12 @@ public class ZtSpliceHelper implements ISpliceField {
     private String modifyClassType(List<String> strings) {
         if (strings.size() > 1) {
             String type = strings.get(1);
-            if ("string".equalsIgnoreCase(type)) {
-                return "String";
-            } else if ("boolean".contains(type)) {
+            if ("boolean".contains(type)) {
                 return "boolean";
             } else if ("decimal".equalsIgnoreCase(type)) {
                 return "double";
-            } else if ("List<string>".equalsIgnoreCase(type)) {
-                return "List<String>";
+            } else if (type.contains("string")) {
+                type.replace("string", "String");
             } else {
                 return type;
             }
