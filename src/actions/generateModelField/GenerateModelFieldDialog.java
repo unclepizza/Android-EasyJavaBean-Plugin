@@ -1,8 +1,9 @@
-package main;
+package actions.generateModelField;
 
 import javax.swing.*;
+import java.awt.event.*;
 
-public class GenerateDialog extends JDialog {
+public class GenerateModelFieldDialog extends JDialog {
     private JPanel content;
     private JTextArea txtPasteStr;
     private JCheckBox cbSerializable;
@@ -18,7 +19,7 @@ public class GenerateDialog extends JDialog {
      */
     private String memberType;
 
-    public GenerateDialog() {
+    public GenerateModelFieldDialog() {
         setContentPane(content);
         setModal(true);
         btnGenerate.addActionListener(e -> {

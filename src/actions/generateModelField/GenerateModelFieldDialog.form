@@ -1,74 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="main.GenerateDialog">
-  <grid id="27dc6" binding="content" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="actions.generateModelField.GenerateModelFieldDialog">
+  <grid id="cbd77" binding="content" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="5" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="48" y="54" width="436" height="297"/>
     </constraints>
-    <properties>
-      <enabled value="true"/>
-    </properties>
+    <properties/>
     <border type="none"/>
     <children>
-      <component id="b80a3" class="javax.swing.JLabel">
+      <component id="d8816" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <requestFocusEnabled value="true"/>
           <text value="Paste string here:"/>
         </properties>
       </component>
-      <scrollpane id="738ae">
+      <scrollpane id="ea7ad">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="1" fill="1" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="400" height="200"/>
-            <maximum-size width="400" height="200"/>
           </grid>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="65cdc" class="javax.swing.JTextArea" binding="txtPasteStr">
+          <component id="8240c" class="javax.swing.JTextArea" binding="txtPasteStr">
             <constraints/>
-            <properties>
-              <margin top="0" left="0" bottom="0" right="0"/>
-              <preferredSize width="200" height="400"/>
-              <visible value="true"/>
-            </properties>
+            <properties/>
           </component>
         </children>
       </scrollpane>
-      <grid id="c3016" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="dab19" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="4b88d" class="javax.swing.JLabel">
+          <component id="74cec" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Implements:"/>
             </properties>
           </component>
-          <component id="df07" class="javax.swing.JCheckBox" binding="cbSerializable">
+          <component id="141ba" class="javax.swing.JCheckBox" binding="cbSerializable">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <label value="Serializable"/>
-              <margin top="2" left="12" bottom="2" right="2"/>
-              <selected value="false"/>
               <text value="Serializable"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="a6d5f" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d3a44" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
@@ -76,7 +65,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="45ad2" class="javax.swing.JLabel">
+          <component id="3a25d" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -84,50 +73,46 @@
               <text value="Member Type:"/>
             </properties>
           </component>
-          <component id="a51d1" class="javax.swing.JRadioButton" binding="rbPrivate">
+          <component id="1829" class="javax.swing.JRadioButton" binding="rbPrivate">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <label value="private"/>
               <selected value="true"/>
               <text value="private"/>
             </properties>
           </component>
-          <component id="42ede" class="javax.swing.JRadioButton" binding="rbPublic">
+          <component id="cfdf2" class="javax.swing.JRadioButton" binding="rbPublic">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <label value="public"/>
               <text value="public"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="f0dab" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="82b9a" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="22e0a" class="javax.swing.JButton" binding="btnGenerate">
+          <component id="e217a" class="javax.swing.JButton" binding="btnGenerate">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <label value="Generate"/>
               <text value="Generate"/>
             </properties>
           </component>
-          <component id="21e53" class="javax.swing.JButton" binding="btnCancel">
+          <component id="f1ca7" class="javax.swing.JButton" binding="btnCancel">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <label value="Cancel"/>
               <text value="Cancel"/>
             </properties>
           </component>

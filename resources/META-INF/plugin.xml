@@ -1,40 +1,75 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <id>com.ctrip.zt.gaok.plugin.easyJavaBeanPlugins</id>
+    <name>Easy Java Bean</name>
+    <version>1.0</version>
+    <vendor email="542385331@qq.com" url="http://www.ctrip.com/">Ctrip</vendor>
 
-  <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+    <description><![CDATA[
+<p>
+	Java bean代码自动生成插件集合：根据复制过来的字段文本自动生成Java Bean文件或者对应字段。
+</p>
+<p>
+	每一行需要满足格式：字段名（如：name）&nbsp; 字段类型（<span>如：</span>String） 字段注释（<span>如：</span>姓名，注释不是必要的）
+</p>
+<p>
+	有两种生成方式：
+</p>
+<h3>
+	1. 在已有文件中追加字段
+</h3>
+<p>
+	使用方式：在文件中"右键--&gt;generate... ”<span>或者使用快捷键“Alt + Insert”，接着选择命令“</span>Generate Field By String”
+</p>
+<h3>
+	2. 根据复制的文本生成Java Bean文件
+</h3>
+<p>
+	使用方式：在目标包上右键--&gt;New--&gt;New Java Bean File By String
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<strong>Au</strong><strong>t</strong><strong>hor </strong>Gaok
+</p>
+<p>
+	<strong>Githu</strong><strong>b&nbsp;<a href="https://github.com/unclepizza/Android-EasyCodePlugins-master/commits/master" target="_blank">https://github.com/unclepizza/Android-EasyCodePlugins-master/commits/master</a></strong>
+</p>
+<p>
+	<strong>C</strong><strong>S</strong><strong>DN&nbsp;<a href="http://blog.csdn.net/qq_27258799/article/details/79295251" target="_blank">http://blog.csdn.net/qq_27258799/article/details/79295251</a></strong>
+</p>
+<p>
+	<br />
+</p>
+<p>
+	欢迎关注 or star！
+</p>
     ]]></description>
 
-  <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
-  </change-notes>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
-
-  <actions>
-    <!-- Add your actions here -->
-    <action id="GenerateModelFromStringByGk" class="main.MainAction" text="GenerateModelFromString"
-            description="Auto generate model from string">
-      <add-to-group group-id="GenerateGroup" anchor="first"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt S"/>
-    </action>
-  </actions>
+    <actions>
+        <!-- Add your actions here -->
+        <action id="generateModelFieldFromString" class="actions.generateModelField.GenerateModelFieldAction" text="Generate Field By String"
+                description="Generate Model Field By String" icon="/icons/ic_logo.png">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+            <add-to-group group-id="NewGroup" anchor="last"/>
+        </action>s
+        <action id="GenerateJavaBeanBySting" class="actions.generateJavaBean.GenerateJavaBeanAction" text="New Java Bean File By String"
+                description="Generate JavaBean File By String" icon="/icons/ic_logo.png">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
 
 </idea-plugin>

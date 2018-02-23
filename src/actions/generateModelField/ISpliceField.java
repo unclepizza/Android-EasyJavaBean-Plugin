@@ -1,4 +1,4 @@
-package main;
+package actions.generateModelField;
 
 
 import com.intellij.openapi.project.Project;

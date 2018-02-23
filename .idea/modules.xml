@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GenerateModelFromString.iml" filepath="$PROJECT_DIR$/GenerateModelFromString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-EasyJavaBean-Plugins.iml" filepath="$PROJECT_DIR$/Android-EasyJavaBean-Plugins.iml" />
     </modules>
   </component>
 </project>
