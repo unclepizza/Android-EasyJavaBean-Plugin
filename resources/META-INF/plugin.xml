@@ -33,7 +33,7 @@
 	<strong>Au</strong><strong>t</strong><strong>hor </strong>Gaok
 </p>
 <p>
-	<strong>Githu</strong><strong>b&nbsp;<a href="https://github.com/unclepizza/Android-EasyCodePlugins-master/commits/master" target="_blank">https://github.com/unclepizza/Android-EasyCodePlugins-master/commits/master</a></strong>
+	<strong>Githu</strong><strong>b&nbsp;<a href="https://github.com/unclepizza/Android-EasyJavaBean-Plugin" target="_blank">https://github.com/unclepizza/Android-EasyJavaBean-Plugin</a></strong>
 </p>
 <p>
 	<strong>C</strong><strong>S</strong><strong>DN&nbsp;<a href="http://blog.csdn.net/qq_27258799/article/details/79295251" target="_blank">http://blog.csdn.net/qq_27258799/article/details/79295251</a></strong>
@@ -51,9 +51,9 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <!-- uncomment to enable plugin in all products
+
     <depends>com.intellij.modules.lang</depends>
-    -->
+
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->

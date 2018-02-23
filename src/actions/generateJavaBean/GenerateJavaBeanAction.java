@@ -177,5 +177,4 @@ public class GenerateJavaBeanAction extends AnAction {
         dialog.setLocationRelativeTo(WindowManager.getInstance().getFrame(e.getProject()));
         dialog.setVisible(true);
     }
-
 }

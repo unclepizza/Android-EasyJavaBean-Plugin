@@ -17,21 +17,6 @@ import java.util.List;
 public class GenerateModelFieldAction extends AnAction {
     private AnActionEvent anActionEvent;
 
-    @Override
-    public void actionPerformed(AnActionEvent e) {
-        this.anActionEvent = e;
-        GenerateModelFieldDialog generateDialog = new GenerateModelFieldDialog();
-        generateDialog.setOnClickListener(mClickListener);
-        generateDialog.setTitle("Generate Model By String");
-        //默认设置Serializable为false，即不产生：“private static final long serialVersionUID = 1L;”
-        generateDialog.setCbSerializable(false);
-        //自动调整对话框大小
-        generateDialog.pack();
-        //设置对话框跟随当前windows窗口
-        generateDialog.setLocationRelativeTo(WindowManager.getInstance().getFrame(e.getProject()));
-        generateDialog.setVisible(true);
-    }
-
     private GenerateModelFieldDialog.OnClickListener mClickListener = new GenerateModelFieldDialog.OnClickListener() {
 
         @Override
@@ -54,5 +39,18 @@ public class GenerateModelFieldAction extends AnAction {
         }
     }
 
-
+    @Override
+    public void actionPerformed(AnActionEvent e) {
+        this.anActionEvent = e;
+        GenerateModelFieldDialog generateDialog = new GenerateModelFieldDialog();
+        generateDialog.setOnClickListener(mClickListener);
+        generateDialog.setTitle("Generate Field By String");
+        //默认设置Serializable为false，即不产生：“private static final long serialVersionUID = 1L;”
+        generateDialog.setCbSerializable(false);
+        //自动调整对话框大小
+        generateDialog.pack();
+        //设置对话框跟随当前windows窗口
+        generateDialog.setLocationRelativeTo(WindowManager.getInstance().getFrame(e.getProject()));
+        generateDialog.setVisible(true);
+    }
 }
