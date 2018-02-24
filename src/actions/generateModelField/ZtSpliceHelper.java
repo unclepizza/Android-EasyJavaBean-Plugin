@@ -49,7 +49,6 @@ public class ZtSpliceHelper implements ISpliceField {
             appendField(strings, sb);
             PsiField field = factory.createFieldFromText(sb.toString(), psiClass);
             psiClass.add(field);
-
         }
     }
 

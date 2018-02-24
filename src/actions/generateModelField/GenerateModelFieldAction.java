@@ -45,8 +45,6 @@ public class GenerateModelFieldAction extends AnAction {
         GenerateModelFieldDialog generateDialog = new GenerateModelFieldDialog();
         generateDialog.setOnClickListener(mClickListener);
         generateDialog.setTitle("Generate Field By String");
-        //默认设置Serializable为false，即不产生：“private static final long serialVersionUID = 1L;”
-        generateDialog.setCbSerializable(false);
         //自动调整对话框大小
         generateDialog.pack();
         //设置对话框跟随当前windows窗口

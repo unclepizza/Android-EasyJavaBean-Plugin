@@ -11,10 +11,6 @@ public class GenerateModelFieldDialog extends JDialog {
     private OnClickListener onClickListener;
     private JRadioButton rbPublic, rbPrivate;
     /**
-     * 是否序列化
-     */
-    private boolean serializable;
-    /**
      * 成员变量类型：private or public
      */
     private String memberType;
@@ -24,7 +20,7 @@ public class GenerateModelFieldDialog extends JDialog {
         setModal(true);
         btnGenerate.addActionListener(e -> {
             if (onClickListener != null) {
-                onClickListener.onGenerate(txtPasteStr.getText(), memberType, serializable);
+                onClickListener.onGenerate(txtPasteStr.getText(), memberType, cbSerializable.isSelected());
             }
             dispose();
         });
@@ -33,10 +29,6 @@ public class GenerateModelFieldDialog extends JDialog {
                 onClickListener.onCancel();
             }
             dispose();
-        });
-
-        cbSerializable.addChangeListener(e -> {
-            this.serializable = cbSerializable.isSelected();
         });
 
         rbPublic.addChangeListener(e -> {
@@ -62,9 +54,5 @@ public class GenerateModelFieldDialog extends JDialog {
 
     public void setOnClickListener(OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
-    }
-
-    public void setCbSerializable(boolean select) {
-        this.cbSerializable.setSelected(select);
     }
 }

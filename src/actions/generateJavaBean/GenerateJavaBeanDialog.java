@@ -24,7 +24,7 @@ public class GenerateJavaBeanDialog extends JDialog {
 
         btnGenerate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onClickListener.onGenerate(editClassName.getText(), txtPasteHere.getText(), serializable, memberType);
+                onClickListener.onGenerate(editClassName.getText(), txtPasteHere.getText(), cbSerializable.isSelected(), memberType);
                 dispose();
             }
         });
@@ -49,10 +49,6 @@ public class GenerateJavaBeanDialog extends JDialog {
                 memberType = "private";
             }
         });
-
-        cbSerializable.addChangeListener(e -> {
-            this.serializable = cbSerializable.isSelected();
-        });
     }
 
     public interface OnClickListener {
@@ -63,9 +59,5 @@ public class GenerateJavaBeanDialog extends JDialog {
 
     public void setOnClickListener(GenerateJavaBeanDialog.OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
-    }
-
-    public void setCbSerializable(boolean select) {
-        this.cbSerializable.setSelected(select);
     }
 }

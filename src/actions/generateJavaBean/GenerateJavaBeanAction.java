@@ -79,22 +79,16 @@ public class GenerateJavaBeanAction extends AnAction {
         PsiClass psiClass = directoryService.createClass(directory, fileName, "GenerateFileByString", false, map);
         //根据粘贴的文本生成字段
         List<List<String>> modelList = CommonUtil.convertToList(pasteStr);
-        WriteCommandAction.runWriteCommandAction(project, () -> generateModelField(serializable, member, project, psiClass, modelList));
+        WriteCommandAction.runWriteCommandAction(project, () -> generateModelField(member, project, psiClass, modelList));
         return "";
     }
 
-    private void generateModelField(boolean serializable, String member, Project project, PsiClass psiClass, List<List<String>> modelList) {
+    private void generateModelField(String member, Project project, PsiClass psiClass, List<List<String>> modelList) {
         this.mType = member;
         if (psiClass == null) {
             return;
         }
         PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
-        ArrayList<PsiField> psiFields = new ArrayList<>();
-        String ss = "private static final long serialVersionUID = 1L;";
-        if (serializable) {
-            PsiField field = factory.createFieldFromText(ss, psiClass);
-            psiFields.add(field);
-        }
         for (List<String> strings : modelList) {
             StringBuilder sb = new StringBuilder();
             if (strings.size() == 0 || strings.size() == 1) {
@@ -169,8 +163,6 @@ public class GenerateJavaBeanAction extends AnAction {
         GenerateJavaBeanDialog dialog = new GenerateJavaBeanDialog();
         dialog.setOnClickListener(mClickListener);
         dialog.setTitle("Generate Java Bean By String");
-        //默认设置Serializable为false，即不产生：“private static final long serialVersionUID = 1L;”
-        dialog.setCbSerializable(false);
         //自动调整对话框大小
         dialog.pack();
         //设置对话框跟随当前windows窗口
