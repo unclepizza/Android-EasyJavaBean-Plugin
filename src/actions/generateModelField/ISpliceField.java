@@ -6,6 +6,9 @@ import com.intellij.psi.PsiClass;
 
 import java.util.List;
 
+/**
+ * 字符串拼接接口
+ */
 public interface ISpliceField {
     /**
      * @param fields 格式化后的，各行的文本元组

@@ -7,6 +7,7 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
+import com.intellij.psi.impl.JavaPsiImplementationHelper;
 import com.intellij.psi.util.PsiTreeUtil;
 
 import java.util.List;
@@ -60,9 +61,6 @@ public class CodeWriter {
             if (psiClass.getNameIdentifier() == null) {
                 return;
             }
-            PsiReferenceList implementsList = psiClass.getImplementsList();
-
-            PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
             try {
                 spliceHelper.onSplice(list, project, psiClass, isSerializable, type);
             } catch (Exception e) {

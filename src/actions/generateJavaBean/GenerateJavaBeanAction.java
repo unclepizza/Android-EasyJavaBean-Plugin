@@ -69,9 +69,9 @@ public class GenerateJavaBeanAction extends AnAction {
         //模板文件参数
         Map<String, String> map = new HashMap<>();
         map.put("NAME", fileName);
-        if(serializable){
+        if (serializable) {
             map.put("INTERFACES", "implements Serializable");
-        }else{
+        } else {
             map.put("INTERFACES", "");
         }
         map.put("PACKAGE", CommonUtil.getPackageName(project));
@@ -95,66 +95,19 @@ public class GenerateJavaBeanAction extends AnAction {
                 continue;
             }
             //注释
-            appendAnnotation(strings, sb);
+            CommonUtil.appendAnnotation(strings, sb);
             //字段类型：int，字段类型不为空，再追加成员类型
-            String fieldType = appendFieldType(strings, sb);
+            String fieldType = CommonUtil.appendFieldType(strings, sb);
             if (!TextUtils.isEmpty(fieldType)) {
                 //成员类型：private
-                appendMemberType(sb);
+                CommonUtil.appendMemberType(mType, sb);
                 sb.append(fieldType);
             }
             //字段名
-            appendField(strings, sb);
+            CommonUtil.appendField(strings, sb);
             PsiField field = factory.createFieldFromText(sb.toString(), psiClass);
             psiClass.add(field);
         }
-    }
-
-    private void appendAnnotation(List<String> strings, StringBuilder sb) {
-        if (strings.size() == 3) {
-            sb.append("/**\n *  ").append(strings.get(2)).append("\n*/\n");
-        }
-    }
-
-    private void appendField(List<String> strings, StringBuilder sb) {
-        if (strings.size() == 0) {
-            return;
-        }
-        sb.append(" ").append(strings.get(0)).append(";");
-    }
-
-    private String appendFieldType(List<String> strings, StringBuilder sb) {
-        String classType = modifyClassType(strings);
-        return classType;
-    }
-
-    private void appendMemberType(StringBuilder sb) {
-        if (mType == null) {
-            mType = "private";
-        }
-        sb.append(mType).append(" ");
-    }
-
-    /**
-     * 服务端契约中的类型跟我们用的类型有差别，这里修正一下
-     * bool -> boolean
-     * string -> String
-     * decimal -> double
-     */
-    private String modifyClassType(List<String> strings) {
-        if (strings.size() > 1) {
-            String type = strings.get(1);
-            if ("boolean".contains(type)) {
-                return "boolean";
-            } else if ("decimal".equalsIgnoreCase(type)) {
-                return "double";
-            } else if (type.contains("string")) {
-                return type.replace("string", "String");
-            } else {
-                return type;
-            }
-        }
-        return "";
     }
 
     @Override

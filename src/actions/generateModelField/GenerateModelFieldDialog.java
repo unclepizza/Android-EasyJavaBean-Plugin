@@ -13,7 +13,7 @@ public class GenerateModelFieldDialog extends JDialog {
     /**
      * 成员变量类型：private or public
      */
-    private String memberType;
+    private String memberType = "private";
 
     public GenerateModelFieldDialog() {
         setContentPane(content);
