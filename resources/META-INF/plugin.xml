@@ -2,35 +2,45 @@
     <id>com.ctrip.zt.gaok.plugin.easyJavaBeanPlugins</id>
     <name>Easy Java Bean</name>
     <version>1.0</version>
-    <vendor email="542385331@qq.com" url="http://www.ctrip.com/">Ctrip</vendor>
+    <vendor email="542385331@qq.com" url="http://blog.csdn.net/qq_27258799">GK</vendor>
 
     <description><![CDATA[
 <p>
-	Java bean代码自动生成插件集合：根据复制过来的字段文本自动生成Java Bean文件或者对应字段。
+	Auto generate Java Bean file or&nbsp;corresponding field. Each line shoud be like this:
 </p>
+<blockquote>
+	<p>
+		Field Name(e.g. studentName) &nbsp;Field Type(e.g. String) &nbsp;Annotation(the name of student)
+	</p>
+</blockquote>
 <p>
-	每一行需要满足格式：字段名（如：name）&nbsp; 字段类型（<span>如：</span>String） 字段注释（<span>如：</span>姓名，注释不是必要的）
-</p>
-<p>
-	有两种生成方式：
-</p>
-<h3>
-	1. 在已有文件中追加字段
-</h3>
-<p>
-	使用方式：在文件中"右键--&gt;generate... ”<span>或者使用快捷键“Alt + Insert”，接着选择命令“</span>Generate Field By String”
-</p>
-<h3>
-	2. 根据复制的文本生成Java Bean文件
-</h3>
-<p>
-	使用方式：在目标包上右键--&gt;New--&gt;New Java Bean File By String
+	Generating code will be like this:
 </p>
 <p>
 	<br />
 </p>
+<pre class="prettyprint lang-java">/**
+ *  the name of student
+ **/
+private String studentName;</pre>
+<pre class="prettyprint lang-java"></pre>
 <p>
-	<strong>Au</strong><strong>t</strong><strong>hor </strong>Gaok
+	<br />
+</p>
+<pre class="prettyprint lang-java">There are two ways to generate code.</pre>
+<h3>
+	1. Append Field In Exsiting File
+</h3>
+<pre class="prettyprint lang-java">You can use by this : "Right click in the file -&gt; <span>generate...&nbsp;" or use its shortcuts "<span>Alt + Insert</span>"</span> , then choose the action "<span>Generate Field By String</span>"</pre>
+<h3>
+	2. Generate A New Java Bean File
+</h3>
+<pre class="prettyprint lang-java">You can use by this : "Right click on the package -&gt; New -&gt; <span>New Java Bean File By String"</span></pre>
+<p>
+	<br />
+</p>
+<p>
+	More infomations :
 </p>
 <p>
 	<strong>Githu</strong><strong>b&nbsp;<a href="https://github.com/unclepizza/Android-EasyJavaBean-Plugin" target="_blank">https://github.com/unclepizza/Android-EasyJavaBean-Plugin</a></strong>
@@ -42,7 +52,7 @@
 	<br />
 </p>
 <p>
-	欢迎关注 or star！
+	Welcome follow or star me!
 </p>
     ]]></description>
 
