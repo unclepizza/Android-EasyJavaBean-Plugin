@@ -7,10 +7,7 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
-import com.intellij.psi.impl.JavaPsiImplementationHelper;
 import com.intellij.psi.util.PsiTreeUtil;
-
-import java.util.List;
 
 /**
  * @author gaok
@@ -28,12 +25,7 @@ public class CodeWriter {
         return INSTANCE;
     }
 
-    /**
-     * 自定义实现文本拼接逻辑
-     */
-    private ISpliceField spliceHelper = new ZtSpliceHelper();
-
-    String write(AnActionEvent event, List<List<String>> list, String type, boolean isSerializable) {
+    String write(String pastedStr, AnActionEvent event, String type, ICodeGenerator spliceHelper) {
         //获取当前编辑的文件
         PsiFile psiFile = event.getData(LangDataKeys.PSI_FILE);
         if (psiFile == null) {
@@ -62,7 +54,7 @@ public class CodeWriter {
                 return;
             }
             try {
-                spliceHelper.onSplice(list, project, psiClass, isSerializable, type);
+                spliceHelper.onSplice(spliceHelper.onParse(pastedStr), project, psiClass, type);
             } catch (Exception e) {
                 resultMessage[0] = e.getMessage() + "\n" + "请检查复制的文本格式是否正确！";
             }

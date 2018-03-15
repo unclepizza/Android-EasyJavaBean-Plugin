@@ -1,15 +1,10 @@
 package actions.generateModelField;
 
-import actions.utils.CommonUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.wm.WindowManager;
 import org.apache.http.util.TextUtils;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 根据文本在类中生成Java Bean字段
@@ -20,8 +15,8 @@ public class GenerateModelFieldAction extends AnAction {
     private GenerateModelFieldDialog.OnClickListener mClickListener = new GenerateModelFieldDialog.OnClickListener() {
 
         @Override
-        public void onGenerate(String str, String memberType, boolean serializable) {
-            generateModel(str, memberType, serializable);
+        public void onGenerate(String str, String memberType) {
+            generateModel(str, memberType);
         }
 
         @Override
@@ -30,9 +25,8 @@ public class GenerateModelFieldAction extends AnAction {
         }
     };
 
-    private void generateModel(String str, String memberType, boolean isSerializable) {
-        List<List<String>> modelList = CommonUtil.convertToList(str);
-        String result = CodeWriter.getInstance().write(anActionEvent, modelList, memberType, isSerializable);
+    private void generateModel(String str, String memberType) {
+        String result = CodeWriter.getInstance().write(str, anActionEvent, memberType, new ZtCodeGenerator());
         //如果有错误信息，弹出来
         if (!TextUtils.isEmpty(result) && !result.equalsIgnoreCase("success")) {
             Messages.showMessageDialog(result, "Error", Messages.getInformationIcon());

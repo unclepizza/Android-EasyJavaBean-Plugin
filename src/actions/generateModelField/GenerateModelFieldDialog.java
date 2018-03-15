@@ -6,7 +6,6 @@ import java.awt.event.*;
 public class GenerateModelFieldDialog extends JDialog {
     private JPanel content;
     private JTextArea txtPasteStr;
-    private JCheckBox cbSerializable;
     private JButton btnCancel, btnGenerate;
     private OnClickListener onClickListener;
     private JRadioButton rbPublic, rbPrivate;
@@ -20,7 +19,7 @@ public class GenerateModelFieldDialog extends JDialog {
         setModal(true);
         btnGenerate.addActionListener(e -> {
             if (onClickListener != null) {
-                onClickListener.onGenerate(txtPasteStr.getText(), memberType, cbSerializable.isSelected());
+                onClickListener.onGenerate(txtPasteStr.getText(), memberType);
             }
             dispose();
         });
@@ -47,7 +46,7 @@ public class GenerateModelFieldDialog extends JDialog {
     }
 
     public interface OnClickListener {
-        void onGenerate(String str, String member, boolean serializable);
+        void onGenerate(String str, String member);
 
         void onCancel();
     }

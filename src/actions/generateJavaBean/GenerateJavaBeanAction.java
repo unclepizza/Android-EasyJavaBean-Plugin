@@ -1,21 +1,19 @@
 package actions.generateJavaBean;
 
-import actions.generateModelField.CodeWriter;
+import actions.generateModelField.ICodeGenerator;
+import actions.generateModelField.ZtCodeGenerator;
 import actions.utils.CommonUtil;
 import com.intellij.ide.IdeView;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
-import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.psi.*;
 import org.apache.http.util.TextUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,18 +75,17 @@ public class GenerateJavaBeanAction extends AnAction {
         map.put("PACKAGE", CommonUtil.getPackageName(project));
         //使用模板生成文件
         PsiClass psiClass = directoryService.createClass(directory, fileName, "GenerateFileByString", false, map);
-        //根据粘贴的文本生成字段
-        List<List<String>> modelList = CommonUtil.convertToList(pasteStr);
-        WriteCommandAction.runWriteCommandAction(project, () -> generateModelField(member, project, psiClass, modelList));
+        WriteCommandAction.runWriteCommandAction(project, () -> generateModelField(pasteStr, member, project, psiClass, new ZtCodeGenerator()));
         return "";
     }
 
-    private void generateModelField(String member, Project project, PsiClass psiClass, List<List<String>> modelList) {
+    private void generateModelField(String pasteStr, String member, Project project, PsiClass psiClass, ICodeGenerator codeGenerator) {
         this.mType = member;
         if (psiClass == null) {
             return;
         }
         PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
+        List<List<String>> modelList = codeGenerator.onParse(pasteStr);
         for (List<String> strings : modelList) {
             StringBuilder sb = new StringBuilder();
             if (strings.size() == 0 || strings.size() == 1) {
