@@ -25,7 +25,7 @@ public class CodeWriter {
         return INSTANCE;
     }
 
-    String write(String pastedStr, AnActionEvent event, String type, ICodeGenerator spliceHelper) {
+    String write(String pastedStr, AnActionEvent event, String type, ICodeGenerator codeGenerator) {
         //获取当前编辑的文件
         PsiFile psiFile = event.getData(LangDataKeys.PSI_FILE);
         if (psiFile == null) {
@@ -54,7 +54,7 @@ public class CodeWriter {
                 return;
             }
             try {
-                spliceHelper.onSplice(spliceHelper.onParse(pastedStr), project, psiClass, type);
+                codeGenerator.onSplice(codeGenerator.onParse(pastedStr), project, psiClass, type);
             } catch (Exception e) {
                 resultMessage[0] = e.getMessage() + "\n" + "请检查复制的文本格式是否正确！";
             }
